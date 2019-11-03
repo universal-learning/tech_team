@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/select-css.css">
+    <title>Register</title>
+    <script type="text/javascript">
+        var clicks = 0;
+        function DisplayInstructorInfo(val){
+            var element=document.getElementById('accountType');
+            if(val=='teaching')
+            {
+                document.getElementById('hiddenFirstName').innerHTML='<input class="un " type="text" align="center" placeholder="First Name">';
+                document.getElementById('hiddenLastName').innerHTML='<input class="un " type="text" align="center" placeholder="Last Name">';
+                document.getElementById('hiddenBio').innerHTML='<input class="bio" type="text" align="center" placeholder="Bio">';
+                document.getElementById('hiddenClassName').innerHTML='';
+                document.getElementById('hiddenSchedule').innerHTML='<h2 class="heading2">Enter times that you are available to teach</h2>';
+                document.getElementById('sun').innerHTML='<center>Sun</center><br><input type="time" name="usr_time"> to '+
+                                                        '<input type="time" name="usr_time"><div id="container"></div>'+
+                                                        '<input class="addTime" type="button" onclick="AddTime();" value="Add Time"/>';
+                document.getElementById('mon').innerHTML='<center>Mon</center><br><input type="time" name="usr_time"> to '+
+                                                        '<input type="time" name="usr_time"><div id="container"></div>'+
+                                                        '<input class="addTime" type="button" onclick="AddTime();" value="Add Time"/>';
+                document.getElementById('tues').innerHTML='<center>Tue</center><br><input type="time" name="usr_time"> to '+
+                                                        '<input type="time" name="usr_time"><div id="container"></div>'+
+                                                        '<input class="addTime" type="button" onclick="AddTime();" value="Add Time"/>';
+                document.getElementById('wed').innerHTML='<center>Wed</center><br><input type="time" name="usr_time"> to '+
+                                                        '<input type="time" name="usr_time"><div id="container"></div>'+
+                                                        '<input class="addTime" type="button" onclick="AddTime();" value="Add Time"/>';
+                document.getElementById('thu').innerHTML='<center>Thu</center><br><input type="time" name="usr_time"> to '+
+                                                        '<input type="time" name="usr_time"><div id="container"></div>'+
+                                                        '<input class="addTime" type="button" onclick="AddTime();" value="Add Time"/>';
+                document.getElementById('fri').innerHTML='<center>Fri</center><br><input type="time" name="usr_time"> to '+
+                                                        '<input type="time" name="usr_time"><div id="container"></div>'+
+                                                        '<input class="addTime" type="button" onclick="AddTime();" value="Add Time"/>'; 
+                document.getElementById('sat').innerHTML='<center>Sat</center><br><input type="time" name="usr_time"> to '+
+                                                        '<input type="time" name="usr_time"><div id="container"></div>'+
+                                                        '<input class="addTime" type="button" onclick="AddTime();" value="Add Time"/>';
+                                                       
+            }
+            else if(val=='learning')
+            {
+                document.getElementById('hiddenFirstName').innerHTML='';
+                document.getElementById('hiddenLastName').innerHTML='';
+                document.getElementById('hiddenBio').innerHTML='';
+                document.getElementById('hiddenClassName').innerHTML='<input class="un " type="text" align="center" placeholder="Class Name">';
+                document.getElementById('hiddenSchedule').innerHTML='';
+                document.getElementById('sun').innerHTML='';
+                document.getElementById('mon').innerHTML='';
+                document.getElementById('tues').innerHTML='';
+                document.getElementById('wed').innerHTML='';
+                document.getElementById('thu').innerHTML='';
+                document.getElementById('fri').innerHTML='';
+                document.getElementById('sat').innerHTML='';
+            }
+            else
+            {
+                document.getElementById('hiddenFirstName').innerHTML='';
+                document.getElementById('hiddenLastName').innerHTML='';
+                document.getElementById('hiddenBio').innerHTML='';
+                document.getElementById('hiddenClassName').innerHTML='';
+                document.getElementById('hiddenSchedule').innerHTML='';
+                document.getElementById('sun').innerHTML='';
+                document.getElementById('mon').innerHTML='';
+                document.getElementById('tues').innerHTML='';
+                document.getElementById('wed').innerHTML='';
+                document.getElementById('thu').innerHTML='';
+                document.getElementById('fri').innerHTML='';
+                document.getElementById('sat').innerHTML='';
+            }
+        }
+
+        function AddTime() {
+            var container = document.getElementById("container");
+            var input = document.createElement("input");
+            input.type = "time";
+            input.name = "usr_time" + clicks;
+            container.appendChild(input);
+            clicks++;
+
+            var t = document.createTextNode(" to ");
+            container.appendChild(t);
+
+            var input = document.createElement("input");
+            input.type = "time";
+            input.name = "usr_time" + clicks;
+            container.appendChild(input);
+            clicks++;
+            // Append a line break 
+            container.appendChild(document.createElement("br"));
+        }
+        
+    </script> 
+</head>
+<body>
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <div class="registerMain">
+        <p class="sign" align="center">Register</p>
+        <form class="form1">
+        <select class="select-css" name = "accountType" onchange='DisplayInstructorInfo(this.value);'>
+            <option value="question">What are you making this account for?</option>
+            <option value="learning">Learning</option>
+            <option value="teaching">Teaching</option>
+        </select>
+        <div id="hiddenFirstName" ></div>
+        <div id="hiddenLastName" ></div>
+        <div id="hiddenClassName" ></div>
+        <input class="un " type="text" align="center" placeholder="Username">
+        <input class="pass" type="password" align="center" placeholder="Password">
+        <input class="pass" type="password" align="center" placeholder="Confirm Password">
+        <div id="hiddenBio" ></div>
+        <div id="hiddenSchedule"></div>
+        <div class="parent" id = "weekTimeSlots">
+            <div class='child inline-block-child' id="sun"></div>
+            <div class='child inline-block-child' id="mon"></div>
+            <div class='child inline-block-child' id="tues"></div>
+            <div class='child inline-block-child' id="wed"></div>
+            <div class='child inline-block-child' id="thu"></div>
+            <div class='child inline-block-child' id="fri"></div>
+            <div class='child inline-block-child' id="sat"></div>
+        </div>
+        <p class="forgot"><a class="registerButton" href='index.html'>Register</a></p>
+        <p class="newaccount"><a class="registerButton" href='login.html'>Cancel</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>Sign in</title>
+    <script type="text/javascript">
+        function check(form)
+        {
+            if(form.userid.value == "student" && form.pswrd.value == "hi") {
+                document.getElementById('redirectToIndex').innerHTML='<meta http-equiv = "refresh" content = "2; url = index.html" />';
+            }
+            else if(form.userid.value == "instructor" && form.pswrd.value == "hi")
+            {
+                document.getElementById('redirectToIndex').innerHTML='<meta http-equiv = "refresh" content = "2; url = instructorPage.html" />';
+            }
+            else {
+                alert("Error Password or Username")/*displays error message*/
+            }
+        }
+    </script>
+</head>
+    
+<body>
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <div class="main">
+        <p class="sign" align="center">Sign in</p>
+        <form class="form1">
+            <input class="un " type="text" name="userid" align="center" placeholder="Username">
+            <input class="pass" type="password" name="pswrd" align="center" placeholder="Password">
+            <input class="submit" type="button" onclick="check(this.form);" value="Login"/>
+            <div id="redirectToIndex"></div>
+            <p class="forgot" align="center"><a href="forgotPassword.html">Forgot Password?</p>    
+            <p class="newaccount" align="center"><a href="register.html">Register for an account</a></p>  
+        </form>
+        
+    </div>   
+</body>
+</html>
